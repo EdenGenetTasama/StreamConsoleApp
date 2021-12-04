@@ -47,7 +47,9 @@ namespace StreamConsoleApp
 
             /// שאלה שלישית:
 
+            //
 
+            //PermissionFunctiong("Eden" , "Eden the queen");
 
 
 
@@ -74,10 +76,27 @@ namespace StreamConsoleApp
 
 
 
-            //8:
-            static void 
+            //8 + 9 :
+            //Console.WriteLine("Please Enter a number:");
+            //int UserNumber = int.Parse(Console.ReadLine());
+            //void recursiaFun()
+            //{
 
+            //    if (UserNumber < 10)
+            //    {
+            //        TeskEingthFunction(UserNumber, "Eden");
+            //    }
+            //    else
+            //    {
+            //        TeskNineFunction();
+            //    }
 
+            //    recursiaFun();
+            //}
+
+            //10:
+
+            //TeskTen();
 
 
         }
@@ -123,6 +142,16 @@ namespace StreamConsoleApp
             }
         }
 
+        // Permission Tesk:
+
+        static void PermissionFunctiong(string fileSpot , string info)
+        {
+            FileStream fileStream = new FileStream(@$"C:/Users/edent/OneDrive/שולחן העבודה/טק קריירה/C#/02.12.2021/files/{fileSpot}", FileMode.Append); 
+            using(StreamWriter writer = new StreamWriter(fileStream))
+            {
+                writer.WriteLine(info);
+            }
+        }
 
         //READ 
         //static void ReadFirstFunction()
@@ -146,7 +175,7 @@ namespace StreamConsoleApp
         }
 
         //6
-        static void GetSum(int numOne , int numTwo)
+        static void GetSum(int numOne, int numTwo)
         {
             FileStream fileStream = new FileStream(@"C:/Users/edent/OneDrive/שולחן העבודה/טק קריירה/C#/02.12.2021/files/sumOfTwoNum", FileMode.Append);
             using (StreamWriter reader = new StreamWriter(fileStream))
@@ -174,10 +203,55 @@ namespace StreamConsoleApp
 
             else
             {
-                Console.WriteLine("LOSER");
+                Console.WriteLine("Not the same number ,Youre loser.");
             }
 
         }
+
+
+        //8:
+        static void TeskEingthFunction(int numberFromUser, string nameFromUser)
+        {
+            Random random = new Random();
+            int numberRandom = random.Next(1, 10);
+            if (numberFromUser == numberRandom)
+            {
+                FileStream fileStream = new FileStream(@"C:/Users/edent/OneDrive/שולחן העבודה/טק קריירה/C#/02.12.2021/files/TeskEight", FileMode.Append);
+                using (StreamWriter writer = new StreamWriter(fileStream))
+                {
+                    writer.WriteLine($"{nameFromUser}+ {numberFromUser}");
+                }
+
+            }
+            else
+            {
+                Console.WriteLine($"Youre LOser , the random num is:{ numberRandom}");
+            }
+        }
+
+        //9:
+
+        static void TeskNineFunction()
+        {
+            FileStream fileStream = new FileStream(@"C:/Users/edent/OneDrive/שולחן העבודה/טק קריירה/C#/02.12.2021/files/TeskEight", FileMode.Open);
+            using (StreamReader reader = new StreamReader(fileStream))
+            {
+                Console.WriteLine(reader.ReadToEnd());
+            }
+        }
+
+        //10:
+
+        static void TeskTen()
+        {
+            FileStream fileStream = new FileStream(@"C:/Users/edent/OneDrive/שולחן העבודה/טק קריירה/C#/02.12.2021/files/Person", FileMode.Open);
+            using(StreamReader reader =new StreamReader(fileStream))
+            {
+                //if(reader.ReadToEnd == 25)
+                Console.WriteLine(reader.ReadToEnd());
+            }
+        }
+
 
     }
 
